@@ -1,6 +1,6 @@
 # armload into service resources for UM8700 cluster
 
-This memo describes how to upgrade UM8700 with EXPRESSCLUSTER X3.3 into EXPRESSCLUSTER X5.1
+This memo describes how to upgrade UM8700 clustering with EXPRESSCLUSTER X3.3 into EXPRESSCLUSTER X5.1.
 
 ---
 
