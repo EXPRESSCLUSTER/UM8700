@@ -3,7 +3,13 @@
 This memo describes how to upgrade UM8700 clustering with EXPRESSCLUSTER X3.3 into EXPRESSCLUSTER X5.1.
 
 ---
+## Note
+When configuring the EXPRESSCLUSTERExpressCluster, we recommend the following:
+- You configure Configure a Floating IP Address that will be used with the installation and configuration of UM8700 in LAN environment where all cluster nodes belong to a same network.
+- Configure a Dynamic DNS that will be used with the installation and configuration of UM8700 in WAN environment where each cluster nodes belong to a different network.
+- Configure a Mirrored Disc as the D: drive for each node in the cluster.
 
+## Sample Script Configuration
 Assume the script resource `UM8700 Services Script` has the following start.bat and stop.bat in it.
 
 - start.bat
@@ -117,13 +123,15 @@ clpcfctrl --pull -x .
 
 Zip the `clp.conf` file into `clp-old.zip` and copy `scripts` directory into the `clp-old.zip`.
 
-On the WebUI of the newer cluster (ECX4 or later), import the `clp-old.zip` and export the configuration and name it as `clp-new.zip`.
+On the WebUI of the newer cluster (ECX5 or later), import the `clp-old.zip` and export the configuration and name it as `clp-new.zip`.
 
 Extract `clp.conf` from the `clp-new.zip` to the current directory.
 
 Open `cmd.exe`.
 Change directory to where the `clp.conf` was extracted.
 Issue `clpcfadm.py` command as follows to edit the clp.conf in the current directory.
+
+If you are using before ECX4, we recommend using `clpcfset` command to set up the system.
 
 Assumption:
 
@@ -309,6 +317,6 @@ clpcfadm.py mod -t monitor/servicew@servicew-CXUS/relation/type --set rsc --noch
 
 copy `clp.conf` in the current directory back to `clp-new.zip`.
 
-On the WebUI of the newer cluster (ECX4 or later), import the `clp-new.zip`.
+On the WebUI of the newer cluster (ECX5 or later), import the `clp-new.zip`.
 Edit the start.bat and stop.bat scripts in the script resource `UM8700 Services Script` to delete `armload` and `armkill` command lines.
 Then apply the configuration.
