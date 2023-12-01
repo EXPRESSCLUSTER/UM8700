@@ -11,6 +11,8 @@ When configuring the EXPRESSCLUSTERExpressCluster, we recommend the following:
 
 ## Sample Script Configuration
 Assume the script resource `UM8700 Services Script` has the following start.bat and stop.bat in it.
+These scripts are samples of the Start and Stop scripts.  The configuration at your site may be different according to your system requirements and environment.
+
 
 - start.bat
 
