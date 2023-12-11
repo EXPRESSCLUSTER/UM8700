@@ -3,16 +3,17 @@
 This memo describes how to upgrade UM8700 clustering with EXPRESSCLUSTER X3.3 into EXPRESSCLUSTER X5.1.
 
 ---
-## Note
-When configuring the EXPRESSCLUSTERExpressCluster, we recommend the following:
-- You configure Configure a Floating IP Address that will be used with the installation and configuration of UM8700 in LAN environment where all cluster nodes belong to a same network.
+
+## Notes
+
+- You configure a Floating IP Address that will be used with the installation and configuration of UM8700 in LAN environment where all cluster nodes belong to a same network.
 - Configure a Dynamic DNS that will be used with the installation and configuration of UM8700 in WAN environment where each cluster nodes belong to a different network.
-- Configure a Mirrored Disc as the D: drive for each node in the cluster.
+- Configure a Mirror Disk Resource as the D: drive for each node in the cluster.
 
-## Sample Script Configuration
+## Sample Scripts
+
 Assume the script resource `UM8700 Services Script` has the following start.bat and stop.bat in it.
-These scripts are samples of the Start and Stop scripts.  The configuration at your site may be different according to your system requirements and environment.
-
+These are samples of the Start and Stop scripts.  Your configuration may differ depending on your system requirements and environment.
 
 - start.bat
 
@@ -133,7 +134,7 @@ Open `cmd.exe`.
 Change directory to where the `clp.conf` was extracted.
 Issue `clpcfadm.py` command as follows to edit the clp.conf in the current directory.
 
-If you are using before ECX4, we recommend using `clpcfset` command to set up the system.
+In ECX4, use `clpcfset` command to set up the system.
 
 Assumption:
 
